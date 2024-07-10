@@ -5,7 +5,13 @@ return {
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
+      require("luasnip.loaders.from_vscode").lazy_load()
       return {
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
         auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -32,6 +38,7 @@ return {
           { name = "path" },
         }, {
           { name = "buffer" },
+          { name = "luasnip" },
         }),
         formatting = {
           format = function(_, item)
