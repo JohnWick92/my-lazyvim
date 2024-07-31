@@ -4,10 +4,8 @@ return {
     vim.list_extend(opts.ensure_installed, {
       "css",
       "http",
-      "blade",
       "markdown",
       "php",
-      "phpdoc",
       "rust",
       "vue",
     })

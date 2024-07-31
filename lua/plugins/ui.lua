@@ -1,5 +1,5 @@
 return {
-  { "nvim-lualine/lualine.nvim", enabled = false },
+  { "nvim-lualine/lualine.nvim", enabled = true },
   { "akinsho/bufferline.nvim", enabled = false },
   { "goolord/alpha-nvim", enabled = false },
   { "lukas-reineke/indent-blankline.nvim" },

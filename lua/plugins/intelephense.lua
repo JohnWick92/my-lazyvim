@@ -7,6 +7,9 @@ return {
         intelephense = {
           filetypes = { "php", "blade" },
           settings = {
+            phpactor = {
+              enable = false,
+            },
             intelephense = {
               filetypes = { "php", "blade" },
               files = {
