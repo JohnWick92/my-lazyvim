@@ -5,6 +5,7 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.biome,
+        null_ls.builtins.formatting.pint,
       },
     })
   end,
