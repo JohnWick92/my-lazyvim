@@ -22,7 +22,7 @@ return {
       require("nvchad_ui").setup({
         lazyVim = true,
         statusline = { separator_style = "default", theme = "default", lualine = false, enabled = true },
-        theme_toggle = { "tokyonight" },
+        theme_toggle = { "kanagawa-dragon" },
         nvdash = { load_on_startup = true },
       })
 

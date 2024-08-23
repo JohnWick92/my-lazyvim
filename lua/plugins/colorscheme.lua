@@ -1,12 +1,11 @@
 return {
+  { "rebelot/kanagawa.nvim", opts = {
+    transparent = true,
+  } },
   {
-    "tokyonight.nvim",
+    "LazyVim/LazyVim",
     opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
+      colorscheme = "kanagawa-dragon",
     },
   },
 }
