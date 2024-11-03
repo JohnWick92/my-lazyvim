@@ -1,7 +1,7 @@
 return {
   { "nvim-lualine/lualine.nvim", enabled = true },
-  { "akinsho/bufferline.nvim", enabled = false },
-  { "goolord/alpha-nvim", enabled = false },
+  { "akinsho/bufferline.nvim", enabled = true },
+  { "goolord/alpha-nvim", enabled = true },
   { "lukas-reineke/indent-blankline.nvim" },
   {
     "echasnovski/mini.indentscope",

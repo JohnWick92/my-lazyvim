@@ -11,10 +11,6 @@ return {
             require("luasnip").lsp_expand(args.body)
           end,
         },
-        auto_brackets = {}, -- configure any filetype to auto add brackets
-        completion = {
-          completeopt = "menu,menuone,noinsert",
-        },
         mapping = cmp.mapping.preset.insert({
           ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -23,19 +19,31 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<S-CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+            if cmp.visible() then
+              local entry = cmp.get_selected_entry()
+              if not entry then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+              end
+              cmp.confirm()
+            else
+              fallback()
+            end
+          end, { "i" }),
           ["<C-CR>"] = function(fallback)
             cmp.abort()
             fallback()
           end,
         }),
+        completion = {
+          keyword_length = 0,
+          completeopt = "menu,menuone,noinsert",
+        },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "codeium" },
           { name = "path" },
-        }, {
           { name = "buffer" },
           { name = "luasnip" },
         }),
@@ -49,9 +57,7 @@ return {
           end,
         },
         experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
+          ghost_text = true,
         },
         sorting = defaults.sorting,
       }
