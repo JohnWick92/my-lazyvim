@@ -13,6 +13,7 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<S-Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -42,7 +43,7 @@ return {
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "codeium" },
+          { name = "copilot" },
           { name = "path" },
           { name = "buffer" },
           { name = "luasnip" },
